@@ -1,14 +1,14 @@
-# Java Cloud-Native Template Repo
+# fraud-detection-realtime
 
-This repository is a template to bootstrap “company-grade” Java backend projects.
+Real-time fraud detection playground: an event-driven backend system that ingests transactions, evaluates risk, and produces decisions with low latency and strong observability.
 
-## What you get
-- Repo standards: LICENSE, SECURITY, CONTRIBUTING, CODE_OF_CONDUCT, CHANGELOG
-- PR template + Issue templates (bug/feature)
-- Ready to be used as a GitHub Template Repository
+## High-level architecture
+- **ingestion-service (Spring Boot):** receives transactions via HTTP and publishes events (Kafka in Week 3).
+- **risk-service (placeholder):** evaluates risk rules/models and returns a decision.
+- **Postgres:** persistence for transactions, rules, and audit trail.
+- **Redis:** low-latency cache for features, rate limits, and deduplication.
 
-## Stack target
-Java 21 • Spring Boot 3 • Kafka • AWS • Kubernetes • Terraform • Observability (OpenTelemetry)
-
-## How to use
-Click "Use this template" to create a new repository based on this structure.
+## Running locally
+### 1) Start dependencies
+```bash
+docker compose up -d
